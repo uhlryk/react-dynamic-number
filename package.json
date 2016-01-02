@@ -21,7 +21,7 @@
   },
   "scripts": {
     "build": "./node_modules/webpack/bin/webpack.js",
-    "build-example": "./node_modules/webpack/bin/webpack.js --config ./example/webpack.config.js"
+    "build-example": "npm run build && ./node_modules/webpack/bin/webpack.js --config ./example/webpack.config.js"
   },
   "author": "Krzysztof Sztompka <sztompka.krzysztof@gmail.com>",
   "license": "MIT",
