@@ -1,10 +1,9 @@
 module.exports = {
   entry: {
-    dynamicNumber: './src/dynamicNumber.jsx'
+    dynamicNumber: './example/app.jsx'
   },
   output: {
-    libraryTarget: 'umd',
-    filename: './release/[name].js'
+    filename: './example/app.js'
   },
   module: {
     loaders: [
@@ -19,14 +18,4 @@ module.exports = {
       }
     ]
   },
-  externals: [
-    {
-      'react': {
-        root: 'React',
-        commonjs2: 'react',
-        commonjs: 'react',
-        amd: 'react'
-      }
-    }
-  ]
 };

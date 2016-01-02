@@ -8,3 +8,4 @@ class DynamicNumber extends React.Component {
 }
 
 export default DynamicNumber;
+
