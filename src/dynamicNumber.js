@@ -23,7 +23,7 @@ class DynamicNumber {
 
     var value = String(this._rawViewValue);
     value = this._removeLeadingZero(value);
-    console.log('A1 ' + value);
+
     if(value === '' && String(this._rawViewValue).charAt(0)=== '0'){
       this._newModelValue = 0;
       this._newViewValue = '0';
@@ -78,7 +78,7 @@ class DynamicNumber {
   _removeLeadingZero(value) {
     return value
       .replace(/^0+/g, "")//change 00000 to ''
-      .replace(/^-0\d+/g, "-0")//change -013212 to -0
+      .replace(/^-0(\d+)/g, "-$1")//change -013212 to -0
       .replace(/^-([\.,])/, "-0$1")//change -. to -0.
       .replace(/^[\.,]/g, "0$&");//change . to 0.
   }
