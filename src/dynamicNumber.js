@@ -76,7 +76,11 @@ class DynamicNumber {
   }
 
   _removeLeadingZero(value) {
-    return value.replace(/^0+/g, "").replace(/^-00+/g, "-0").replace(/-0+\[\.,]/, "-0$&").replace(/^[\.,]/g, "0$&");
+    return value
+      .replace(/^0+/g, "")//change 00000 to ''
+      .replace(/^-0\d+/g, "-0")//change -013212 to -0
+      .replace(/-[\.,]/, "-0$&")//change -. to -0.
+      .replace(/^[\.,]/g, "0$&");//change . to 0.
   }
 
   _createModelValue(value) {
