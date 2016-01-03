@@ -1,7 +1,7 @@
 var webpack = require('webpack');
 module.exports = {
   entry: {
-    dynamicNumber: './src/dynamicNumber.jsx'
+    dynamicNumber: './src/index.jsx'
   },
   output: {
     libraryTarget: 'umd',

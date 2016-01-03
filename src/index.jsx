@@ -1,6 +1,7 @@
 import React from 'react';
+import DynamicNumber from './dynamicNumber';
 
-class DynamicNumber extends React.Component {
+class DynamicNumberComponent extends React.Component {
 
   static propTypes = {
     value: React.PropTypes.number
@@ -8,6 +9,10 @@ class DynamicNumber extends React.Component {
 
   constructor(props) {
     super(props);
+
+    this.dynamicNumber = new DynamicNumber();
+    this.dynamicNumber.separator = '.';
+
     this.state = {
       modelValue: 0,
       viewValue: '0'
@@ -17,9 +22,10 @@ class DynamicNumber extends React.Component {
   }
 
   onChange(evt) {
-    var rawValue = evt.target.value;
-    var modelValue = parseFloat(rawValue);
-    var viewValue = rawValue;
+    this.dynamicNumber.calculate(evt.target.value, this.state.modelValue, this.state.viewValue);
+
+    var modelValue = this.dynamicNumber.modelValue;
+    var viewValue = this.dynamicNumber.viewValue;
 
     if(this.props.onChange) {
       this.props.onChange(evt, modelValue, viewValue);
@@ -44,5 +50,5 @@ class DynamicNumber extends React.Component {
   }
 }
 
-export default DynamicNumber;
+export default DynamicNumberComponent;
 
