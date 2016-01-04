@@ -24,12 +24,17 @@ class App extends React.Component {
       <div className="container-fluid content">
         <div className="col-sm-10 com-sm-offset-1 col-md-8 col-md-offset-2">
           <div className="row">
-            <h1>Example of angular dynamic number directive</h1>
+            <h1>Example of react dynamic number directive</h1>
             <form name="directiveForm" className="form-horizontal" >
               <div className="form-group">
-                <label className="control-label">Number may be positive or negative, decimal separator comma</label>
-                <DynamicNumber className="form-control" type="number" onChange={this.onChange.bind(this,0)} />
+                <label className="control-label">Number may be positive or negative, decimal separator comma, integer 5 chars</label>
+                <DynamicNumber className="form-control" onChange={this.onChange.bind(this,0)} separator={','} integer={5} />
                 <div>How looks model: {this.state.example[0]}</div>
+              </div>
+              <div className="form-group">
+                <label className="control-label">Number may be positive or negative, decimal separator dot, integer 6 chars</label>
+                <DynamicNumber className="form-control" onChange={this.onChange.bind(this,1)} separator={'.'} integer={6} />
+                <div>How looks model: {this.state.example[1]}</div>
               </div>
             </form>
           </div>

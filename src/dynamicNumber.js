@@ -3,8 +3,8 @@ class DynamicNumber {
 
   constructor() {
     this._separator = '.';
-    this._integerPart = 10;
-    this._fractionPart = 10;
+    this._integer = 10;
+    this._fraction = 10;
     this._regexp = this._buildRegexp();
   }
 
@@ -12,6 +12,16 @@ class DynamicNumber {
     this._separator = sep === '.' || sep === ',' ? sep : this._separator;
     this._regexp = this._buildRegexp();
 
+  }
+
+  set integer(part) {
+    if(part >= 0){
+      var _part = parseInt(part, 10);
+      if(isNaN(_part) === false && isFinite(_part) && _part >= 0){
+        this._integer = _part;
+      }
+    }
+    this._regexp = this._buildRegexp();
   }
 
   calculate(rawViewValue = 0, oldModelValue = 0, oldViewValue = 0) {
@@ -23,7 +33,6 @@ class DynamicNumber {
 
     var value = String(this._rawViewValue);
     value = this._removeLeadingZero(value);
-
     if(value === '' && String(this._rawViewValue).charAt(0)=== '0'){
       this._newModelValue = 0;
       this._newViewValue = '0';
@@ -47,8 +56,8 @@ class DynamicNumber {
     }
      // view value success 'correct view format' test
     else {
-      this._newModelValue = this._oldModelValue;
-      this._newViewValue = this._createModelValue(value);
+      this._newModelValue = this._createModelValue(value);
+      this._newViewValue = value;
       return;
     }
   }
@@ -64,12 +73,12 @@ class DynamicNumber {
   _buildRegexp() {
     var negativeRegex = '-?';
 
-    var intRegex = '[0-9]{0,'+(this._integerPart)+'}';
-    if(this._integerPart === 0){
+    var intRegex = '[0-9]{0,'+(this._integer)+'}';
+    if(this._integer === 0){
       intRegex = '0';
     }
-    var fractRegex = '(\\'+this._separator+'([0-9]){0,'+this._fractionPart+'})';
-    if(this._fractionPart === 0) {
+    var fractRegex = '(\\'+this._separator+'([0-9]){0,'+this._fraction+'})';
+    if(this._fraction === 0) {
       fractRegex = '';
     }
     return new RegExp('^'+negativeRegex+intRegex+fractRegex+'?$');

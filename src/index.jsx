@@ -4,14 +4,22 @@ import DynamicNumber from './dynamicNumber';
 class DynamicNumberComponent extends React.Component {
 
   static propTypes = {
-    value: React.PropTypes.number
+    value: React.PropTypes.number,
+    integer: React.PropTypes.number,
+    separator: (props, propName) => {
+      if(props[propName] !== ',' && props[propName] !== '.') {
+        return new Error('separator have to be comma or dot char');
+      }
+    }
   }
 
   constructor(props) {
     super(props);
 
     this.dynamicNumber = new DynamicNumber();
-    this.dynamicNumber.separator = '.';
+    this.dynamicNumber.separator = this.props.separator;
+    this.dynamicNumber.integer = this.props.integer;
+
 
     this.state = {
       modelValue: 0,
