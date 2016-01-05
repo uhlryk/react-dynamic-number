@@ -24,6 +24,16 @@ class DynamicNumber {
     this._regexp = this._buildRegexp();
   }
 
+  set fraction(part) {
+    if(part >= 0){
+      var _part = parseInt(part, 10);
+      if(isNaN(_part) === false && isFinite(_part) && _part >= 0){
+        this._fraction = _part;
+      }
+    }
+    this._regexp = this._buildRegexp();
+  }
+
   calculate(rawViewValue = 0, oldModelValue = 0, oldViewValue = 0) {
     this._rawViewValue = rawViewValue;
     this._oldModelValue = oldModelValue;

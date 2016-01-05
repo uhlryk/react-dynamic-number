@@ -6,6 +6,7 @@ class DynamicNumberComponent extends React.Component {
   static propTypes = {
     value: React.PropTypes.number,
     integer: React.PropTypes.number,
+    fraction: React.PropTypes.number,
     separator: (props, propName) => {
       if(props[propName] !== ',' && props[propName] !== '.') {
         return new Error('separator have to be comma or dot char');
@@ -19,6 +20,7 @@ class DynamicNumberComponent extends React.Component {
     this.dynamicNumber = new DynamicNumber();
     this.dynamicNumber.separator = this.props.separator;
     this.dynamicNumber.integer = this.props.integer;
+    this.dynamicNumber.fraction = this.props.fraction;
 
 
     this.state = {
