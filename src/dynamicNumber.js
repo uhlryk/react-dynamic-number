@@ -1,4 +1,3 @@
-
 class DynamicNumber {
 
   constructor() {
@@ -104,9 +103,9 @@ class DynamicNumber {
 
   _createModelValue(value) {
     if(this._separator === ',') {
-      return value.replace(/\./g,"").replace(",",".");
+      return parseFloat(value.replace(/\./g,"").replace(",","."));
     } else {
-      return value.replace(/,/g,"");
+      return parseFloat(value.replace(/,/g,""));
     }
   }
 }
