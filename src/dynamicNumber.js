@@ -33,7 +33,7 @@ class DynamicNumber {
     this._regexp = this._buildRegexp();
   }
 
-  calculate(rawViewValue = 0, oldModelValue = 0, oldViewValue = 0) {
+  calculate(rawViewValue = 0, oldModelValue = 0, oldViewValue = '0') {
     this._rawViewValue = rawViewValue;
     this._oldModelValue = oldModelValue;
     this._oldViewValue = oldViewValue;
