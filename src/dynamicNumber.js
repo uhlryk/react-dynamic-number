@@ -36,12 +36,16 @@ class DynamicNumber {
   }
 
   set positive(isPositive) {
-    this._positive = isPositive;
+    if(isPositive === true || isPositive === false) {
+      this._positive = isPositive;
+    }
     this._regexp = this._buildRegexp();
   }
 
   set negative(isNegative) {
-    this._negative = isNegative;
+    if(isNegative === true || isNegative === false) {
+      this._negative = isNegative;
+    }
     this._regexp = this._buildRegexp();
   }
 
