@@ -4,6 +4,8 @@ class DynamicNumber {
     this._separator = '.';
     this._integer = 10;
     this._fraction = 10;
+    this._positive = true;
+    this._negative = true;
     this._regexp = this._buildRegexp();
   }
 
@@ -30,6 +32,16 @@ class DynamicNumber {
         this._fraction = _part;
       }
     }
+    this._regexp = this._buildRegexp();
+  }
+
+  set positive(isPositive) {
+    this._positive = isPositive;
+    this._regexp = this._buildRegexp();
+  }
+
+  set negative(isNegative) {
+    this._negative = isNegative;
     this._regexp = this._buildRegexp();
   }
 
@@ -81,6 +93,11 @@ class DynamicNumber {
 
   _buildRegexp() {
     var negativeRegex = '-?';
+    if(this._positive === false && this._negative === true) {
+      negativeRegex = '-';
+    } else if(this._positive === true && this._negative === false){
+      negativeRegex = '';
+    }
 
     var intRegex = '[0-9]{0,'+(this._integer)+'}';
     if(this._integer === 0){
