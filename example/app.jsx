@@ -36,6 +36,16 @@ class App extends React.Component {
                 <DynamicNumber className="form-control" onChange={this.onChange.bind(this,1)} separator={'.'} integer={6} fraction={2} />
                 <div>How looks model: {this.state.example[1]}</div>
               </div>
+              <div className="form-group">
+                <label className="control-label">Number may be only positive, decimal separator dot, integer 6 chars</label>
+                <DynamicNumber className="form-control" onChange={this.onChange.bind(this,2)} separator={'.'} integer={6} fraction={2} negative={false} />
+                <div>How looks model: {this.state.example[2]}</div>
+              </div>
+              <div className="form-group">
+                <label className="control-label">Number may be only negative, decimal separator dot, integer 6 chars</label>
+                <DynamicNumber className="form-control" onChange={this.onChange.bind(this,3)} separator={'.'} integer={6} fraction={2} positive={false} />
+                <div>How looks model: {this.state.example[3]}</div>
+              </div>
             </form>
           </div>
         </div>
