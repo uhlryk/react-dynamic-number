@@ -157,4 +157,74 @@ describe('Check calculated model and view values from input', ()=>{
       });
     });
   });
+  describe('Params: integer=10 fraction=10 separator=\'.\' positive=true negative=false', ()=> {
+    var dynamicNumber;
+    before(()=> {
+      dynamicNumber = new DynamicNumber();
+      dynamicNumber.integer = 10;
+      dynamicNumber.fraction = 10;
+      dynamicNumber.separator = ',';
+      dynamicNumber.positive = true;
+      dynamicNumber.negative = false;
+    });
+    describe('value=\'123,4567\'', ()=> {
+      var value = '123,4567';
+      before(()=> {
+        dynamicNumber.calculate(value);
+      });
+      it('should modelValue equal 123.4567', ()=> {
+        expect(dynamicNumber.modelValue).to.be.equal(123.4567);
+      });
+      it('should viewValue equal \'123,4567\'', ()=> {
+        expect(dynamicNumber.viewValue).to.be.equal('123,4567');
+      });
+    });
+    describe('value=\'-123,4567\'', ()=> {
+      var value = '-123,4567';
+      before(()=> {
+        dynamicNumber.calculate(value);
+      });
+      it('should modelValue equal 0', ()=> {
+        expect(dynamicNumber.modelValue).to.be.equal(0);
+      });
+      it('should viewValue equal \'0\'', ()=> {
+        expect(dynamicNumber.viewValue).to.be.equal('0');
+      });
+    });
+  });
+  describe('Params: integer=10 fraction=10 separator=\'.\' positive=false negative=true', ()=> {
+    var dynamicNumber;
+    before(()=> {
+      dynamicNumber = new DynamicNumber();
+      dynamicNumber.integer = 10;
+      dynamicNumber.fraction = 10;
+      dynamicNumber.separator = ',';
+      dynamicNumber.positive = false;
+      dynamicNumber.negative = true;
+    });
+    describe('value=\'-123,4567\'', ()=> {
+      var value = '-123,4567';
+      before(()=> {
+        dynamicNumber.calculate(value);
+      });
+      it('should modelValue equal -123.4567', ()=> {
+        expect(dynamicNumber.modelValue).to.be.equal(-123.4567);
+      });
+      it('should viewValue equal \'-123,4567\'', ()=> {
+        expect(dynamicNumber.viewValue).to.be.equal('-123,4567');
+      });
+    });
+    describe('value=\'123,4567\'', ()=> {
+      var value = '123,4567';
+      before(()=> {
+        dynamicNumber.calculate(value);
+      });
+      it('should modelValue equal 0', ()=> {
+        expect(dynamicNumber.modelValue).to.be.equal(0);
+      });
+      it('should viewValue equal \'0\'', ()=> {
+        expect(dynamicNumber.viewValue).to.be.equal('0');
+      });
+    });
+  });
 });
