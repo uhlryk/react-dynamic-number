@@ -1,4 +1,8 @@
-# REACT Dynamic Number [![Build Status](https://travis-ci.org/uhlryk/react-dynamic-number.svg)](https://travis-ci.org/uhlryk/react-dynamic-number)
+# REACT Dynamic Number 
+[![Build Status](https://travis-ci.org/uhlryk/react-dynamic-number.svg)](https://travis-ci.org/uhlryk/react-dynamic-number)
+[![Downloads](https://img.shields.io/npm/dt/react-dynamic-number.svg)](https://www.npmjs.com/package/react-dynamic-number)
+[![Downloads](https://img.shields.io/npm/dm/react-dynamic-number.svg)](https://www.npmjs.com/package/react-dynamic-number)
+[![NPM version](https://img.shields.io/npm/v/react-dynamic-number.svg)](https://www.npmjs.com/package/react-dynamic-number)
 
 Highly customizable React form element component for numbers (prices). 
 It validates inputs in realtime (if user press not acceptable character it wont appear in input field). 
