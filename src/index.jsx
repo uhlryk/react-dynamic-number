@@ -45,14 +45,6 @@ class DynamicNumberComponent extends React.Component {
       this.props.onChange(evt, modelValue, viewValue);
     }
 
-    if(this.props.onModelChange) {
-      this.props.onModelChange(modelValue);
-    }
-
-    if(this.props.onViewChange) {
-      this.props.onViewChange(viewValue);
-    }
-
     this.setState({
       modelValue: modelValue,
       viewValue: viewValue

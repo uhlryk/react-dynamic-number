@@ -79,8 +79,6 @@ It needs react to work correctly. It is compiled without react at its source.
       positive={true}
       negative={true}
       onChange={this.handleChange}
-      onModelChange={this.handleModelChange}
-      onViewChange={this.handleViewChange}
     />
 
 ### value
