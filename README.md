@@ -69,6 +69,87 @@ It needs react to work correctly. It is compiled without react at its source.
       document.getElementById('app')
     );
 
+## Options:
+
+    <DynamicNumber
+      value={0}
+      separator={'.'}
+      integer={10}
+      fraction={10}
+      positive={true}
+      negative={true}
+      onChange={this.handleChange}
+      onModelChange={this.handleModelChange}
+      onViewChange={this.handleViewChange}
+    />
+
+### value
+ 
+ * type: Number
+ * required: false
+ * default: 0
+ 
+Init value of input
+
+### separator
+
+ * type: String
+ * required: false
+ * default: '.'
+ * options: 
+  * '.' - dot is decimal separator
+  * ',' - comma is decimal separator
+  
+Define number decimal separator
+
+### integer
+  
+ * type: Number
+ * required: false
+ * default: 10
+ 
+Set maximum numbers of digits integer part (digits before decimal separator)
+ 
+### fraction
+  
+ * type: Number
+ * required: false
+ * default: 10
+ 
+Set maximum numbers of digits fraction part (digits after decimal separator)
+ 
+### positive
+  
+ * type: Boolean
+ * required: false
+ * default: true
+ * options: 
+  * true - number can be positive
+  * false - number may not be positive
+  
+Define if number may be positive
+
+### negative
+  
+ * type: Boolean
+ * required: false
+ * default: true
+ * options: 
+  * true - number can be negative
+  * false - number may not be negative
+  
+Define if number may be negative
+
+### onChange
+  
+ * type: Function (callback)
+ * required: false
+ * function attributes: 
+  * evt - react event
+  * modelValue - correct javascript number
+  * viewValue - string value visible in input
+  
+Define callback which will be trigger on any number change
 
 ## License
 MIT
