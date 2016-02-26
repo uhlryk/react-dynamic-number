@@ -166,7 +166,7 @@ class DynamicNumber {
     if(this._isThousand) {
       value = value.split(this._separator);
       value[0] = value[0].replace(/\B(?=(\d{3})+(?!\d))/g, this._thousand);
-      return value.join('.');
+      return value.join(this._separator);
     } else {
       return value;
     }
