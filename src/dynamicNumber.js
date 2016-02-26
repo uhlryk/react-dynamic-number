@@ -55,7 +55,7 @@ class DynamicNumber {
   set thousand(value) {
     this._isThousand = (value || value === ' ');
     if(value === ' ') {
-      this.thousand = ' ';
+      this._thousand = ' ';
     }
     this._calculateThousandSeparator();
   }
@@ -93,9 +93,8 @@ class DynamicNumber {
     }
      // view value success 'correct view format' test
     else {
-      var modelValue = this._createModelValue(value);
-      this._newModelValue = modelValue;
-      this._newViewValue = this._createViewValue(modelValue);
+      this._newModelValue = this._createModelValue(value);
+      this._newViewValue = this._createViewValue(value);
       return;
     }
   }
@@ -165,7 +164,7 @@ class DynamicNumber {
   }
   _createViewValue(value){
     if(this._isThousand) {
-      value = String(value).split('.');
+      value = value.split(this._separator);
       value[0] = value[0].replace(/\B(?=(\d{3})+(?!\d))/g, this._thousand);
       return value.join('.');
     } else {
