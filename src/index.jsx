@@ -42,7 +42,8 @@ class DynamicNumberComponent extends React.Component {
   }
 
   onChange(evt) {
-    this.dynamicNumber.calculate(evt.target.value, this.state.modelValue, this.state.viewValue);
+    var target = evt.target;
+    this.dynamicNumber.calculate(evt.target.value, this.state.modelValue, this.state.viewValue, target.selectionStart);
 
     var modelValue = this.dynamicNumber.modelValue;
     var viewValue = this.dynamicNumber.viewValue;
@@ -54,6 +55,11 @@ class DynamicNumberComponent extends React.Component {
     this.setState({
       modelValue: modelValue,
       viewValue: viewValue
+    }, () => {
+      //after value change we set cursor position
+      if(target.selectionStart !== undefined && target.selectionStart !== null) {
+        target.selectionStart = target.selectionEnd = this.dynamicNumber.cursorPosition;
+      }
     });
   }
 

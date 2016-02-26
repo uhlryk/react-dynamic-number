@@ -60,12 +60,13 @@ class DynamicNumber {
     this._calculateThousandSeparator();
   }
 
-  calculate(rawViewValue = 0, oldModelValue = 0, oldViewValue = '0') {
+  calculate(rawViewValue = 0, oldModelValue = 0, oldViewValue = '0', cursorPosition = null) {
     this._rawViewValue = rawViewValue;
     this._oldModelValue = oldModelValue;
     this._oldViewValue = oldViewValue;
     this._newModelValue = 0;
     this._newViewValue = '';
+    this._cursor = cursorPosition;
 
     var value = String(this._rawViewValue);
     value = this._removeThousandSeparator(value);
@@ -95,6 +96,7 @@ class DynamicNumber {
     else {
       this._newModelValue = this._createModelValue(value);
       this._newViewValue = this._createViewValue(value);
+      this._cursor = this._calculateNewCursorPosition();
       return;
     }
   }
@@ -107,6 +109,9 @@ class DynamicNumber {
     return this._newViewValue;
   }
 
+  get cursorPosition() {
+    return this._cursor;
+  }
   /**
    * private function which calculate thousand separator.
   */
@@ -118,6 +123,35 @@ class DynamicNumber {
         this._thousand = '.';
       }
     }
+  }
+
+  /**
+   * calculate new cursor position based on rawvalue and actual cursor position
+     */
+  _calculateNewCursorPosition() {
+    var valuePartBeforeCursor = String(this._rawViewValue).slice(0,this._cursor);
+    valuePartBeforeCursor = this._removeThousandSeparator(valuePartBeforeCursor);
+    valuePartBeforeCursor = this._removeLeadingZero(valuePartBeforeCursor);
+
+    var currentPosition = valuePartBeforeCursor.length;
+    if(this._isThousand) {
+      let countPosition = 0;
+      let countDots = 0;
+      let i;
+      let len = this._newViewValue.length;
+      for (i = 0; i < len; i++) {
+        if (this._newViewValue[i] !== this._thousand) {
+          countPosition++;
+          if (countPosition >= currentPosition){
+            break;
+          }
+        } else {
+          countDots++;
+        }
+      }
+      currentPosition += countDots;
+    }
+    return currentPosition;
   }
 
   _buildRegexp() {
