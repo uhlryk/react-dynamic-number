@@ -7,12 +7,15 @@ class DynamicNumber {
     this._positive = true;
     this._negative = true;
     this._regexp = this._buildRegexp();
+    this._isThousand = false;
+    this._thousand = null;
+
   }
 
   set separator(sep) {
     this._separator = sep === '.' || sep === ',' ? sep : this._separator;
     this._regexp = this._buildRegexp();
-
+    this._calculateThousandSeparator();
   }
 
   set integer(part) {
@@ -49,6 +52,14 @@ class DynamicNumber {
     this._regexp = this._buildRegexp();
   }
 
+  set thousand(value) {
+    this._isThousand = (value || value === ' ');
+    if(value === ' ') {
+      this.thousand = ' ';
+    }
+    this._calculateThousandSeparator();
+  }
+
   calculate(rawViewValue = 0, oldModelValue = 0, oldViewValue = '0') {
     this._rawViewValue = rawViewValue;
     this._oldModelValue = oldModelValue;
@@ -57,6 +68,7 @@ class DynamicNumber {
     this._newViewValue = '';
 
     var value = String(this._rawViewValue);
+    value = this._removeThousandSeparator(value);
     value = this._removeLeadingZero(value);
     if(value === '' && String(this._rawViewValue).charAt(0)=== '0'){
       this._newModelValue = 0;
@@ -81,8 +93,9 @@ class DynamicNumber {
     }
      // view value success 'correct view format' test
     else {
-      this._newModelValue = this._createModelValue(value);
-      this._newViewValue = value;
+      var modelValue = this._createModelValue(value);
+      this._newModelValue = modelValue;
+      this._newViewValue = this._createViewValue(modelValue);
       return;
     }
   }
@@ -93,6 +106,19 @@ class DynamicNumber {
 
   get viewValue() {
     return this._newViewValue;
+  }
+
+  /**
+   * private function which calculate thousand separator.
+  */
+  _calculateThousandSeparator() {
+    if(this._thousand !== ' ') {
+      if(this._separator === '.') {
+        this._thousand = ',';
+      } else {
+        this._thousand = '.';
+      }
+    }
   }
 
   _buildRegexp() {
@@ -122,11 +148,28 @@ class DynamicNumber {
       .replace(/^[\.,]/g, "0$&");//change . to 0.
   }
 
+  _removeThousandSeparator(value) {
+    if(this._isThousand) {
+      return value.replace(new RegExp('\\' + this._thousand ,'g'), '');
+    } else {
+      return value;
+    }
+  }
+
   _createModelValue(value) {
     if(this._separator === ',') {
       return parseFloat(value.replace(/\./g,"").replace(",","."));
     } else {
       return parseFloat(value.replace(/,/g,""));
+    }
+  }
+  _createViewValue(value){
+    if(this._isThousand) {
+      value = String(value).split('.');
+      value[0] = value[0].replace(/\B(?=(\d{3})+(?!\d))/g, this._thousand);
+      return value.join('.');
+    } else {
+      return value;
     }
   }
 }

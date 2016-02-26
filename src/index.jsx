@@ -10,8 +10,13 @@ class DynamicNumberComponent extends React.Component {
     positive: React.PropTypes.bool,
     negative: React.PropTypes.bool,
     separator: (props, propName) => {
-      if(props[propName] !== ',' && props[propName] !== '.') {
+      if(props[propName] !== undefined && props[propName] !== ',' && props[propName] !== '.') {
         return new Error('separator have to be comma or dot char');
+      }
+    },
+    thousand: (props, propName) => {
+      if(props[propName] !== undefined && props[propName] !== true && props[propName] !== false && props[propName] !== ' ') {
+        return new Error('thousand have to be bool value or space character');
       }
     }
   }
@@ -25,6 +30,7 @@ class DynamicNumberComponent extends React.Component {
     this.dynamicNumber.fraction = this.props.fraction;
     this.dynamicNumber.positive = this.props.positive;
     this.dynamicNumber.negative = this.props.negative;
+    this.dynamicNumber.thousand = this.props.thousand;
 
 
     this.state = {
