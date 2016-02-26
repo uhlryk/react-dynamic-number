@@ -29,6 +29,7 @@ This is port of [Angular Dynamic Number](https://github.com/uhlryk/angular-dynam
  * config decimal separator (dot or comma)
  * config to accept positive, negative and both numbers.
  * model value is correct javascript number, but view value may be correct number for localities
+ * allow to set thousand separator (dot, comma or space)
  
 ## Installation:
 
@@ -78,6 +79,7 @@ It needs react to work correctly. It is compiled without react at its source.
       fraction={10}
       positive={true}
       negative={true}
+      thousand={' '}
       onChange={this.handleChange}
     />
 
@@ -137,6 +139,20 @@ Define if number may be positive
   * false - number may not be negative
   
 Define if number may be negative
+
+### thousand
+
+ * type: boolean or ' ' (space)
+ * required: false
+ * default: false
+ * options: 
+  * false - thousand separator is disabled
+  * ' ' (space) - thousand separator is enabled and separate values by space
+  * true - thousand separator is enabled. 
+   * If decimal separator is dot then thousand separator is comma.
+   * If decimal separator is comma then thousand separator is dot.
+  
+Define number decimal separator
 
 ### onChange
   
