@@ -124,7 +124,7 @@ describe('Check calculated model and view values from input', ()=>{
       });
     });
   });
-  describe('Params: integer=10 fraction=10 separator=\'.\'', ()=> {
+  describe('Params: integer=10 fraction=10 separator=\',\'', ()=> {
     var dynamicNumber;
     before(()=> {
       dynamicNumber = new DynamicNumber();
@@ -157,7 +157,7 @@ describe('Check calculated model and view values from input', ()=>{
       });
     });
   });
-  describe('Params: integer=10 fraction=10 separator=\'.\' positive=true negative=false', ()=> {
+  describe('Params: integer=10 fraction=10 separator=\',\' positive=true negative=false', ()=> {
     var dynamicNumber;
     before(()=> {
       dynamicNumber = new DynamicNumber();
@@ -192,7 +192,7 @@ describe('Check calculated model and view values from input', ()=>{
       });
     });
   });
-  describe('Params: integer=10 fraction=10 separator=\'.\' positive=false negative=true', ()=> {
+  describe('Params: integer=10 fraction=10 separator=\',\' positive=false negative=true', ()=> {
     var dynamicNumber;
     before(()=> {
       dynamicNumber = new DynamicNumber();
@@ -224,6 +224,78 @@ describe('Check calculated model and view values from input', ()=>{
       });
       it('should viewValue equal \'0\'', ()=> {
         expect(dynamicNumber.viewValue).to.be.equal('0');
+      });
+    });
+  });
+  describe('Params: integer=10 fraction=3 separator=\',\' positive=true negative=true thousand=true', ()=> {
+    var dynamicNumber;
+    before(()=> {
+      dynamicNumber = new DynamicNumber();
+      dynamicNumber.integer = 10;
+      dynamicNumber.fraction = 3;
+      dynamicNumber.separator = ',';
+      dynamicNumber.positive = true;
+      dynamicNumber.negative = true;
+      dynamicNumber.thousand = true;
+    });
+    describe('value=\'-123456789,123\'', ()=> {
+      var value = '-123456789,123';
+      before(()=> {
+        dynamicNumber.calculate(value);
+      });
+      it('should modelValue equal -123456789.123', ()=> {
+        expect(dynamicNumber.modelValue).to.be.equal(-123456789.123);
+      });
+      it('should viewValue equal \'-123.456.789,123\'', ()=> {
+        expect(dynamicNumber.viewValue).to.be.equal('-123.456.789,123');
+      });
+    });
+    describe('value=\'123456789,123\'', ()=> {
+      var value = '123456789,123';
+      before(()=> {
+        dynamicNumber.calculate(value);
+      });
+      it('should modelValue equal 123456789.123', ()=> {
+        expect(dynamicNumber.modelValue).to.be.equal(123456789.123);
+      });
+      it('should viewValue equal \'123.456.789,123\'', ()=> {
+        expect(dynamicNumber.viewValue).to.be.equal('123.456.789,123');
+      });
+    });
+  });
+  describe('Params: integer=10 fraction=3 separator=\'.\' positive=true negative=true thousand=" "', ()=> {
+    var dynamicNumber;
+    before(()=> {
+      dynamicNumber = new DynamicNumber();
+      dynamicNumber.integer = 10;
+      dynamicNumber.fraction = 3;
+      dynamicNumber.separator = '.';
+      dynamicNumber.positive = true;
+      dynamicNumber.negative = true;
+      dynamicNumber.thousand = ' ';
+    });
+    describe('value=\'-123456789.123\'', ()=> {
+      var value = '-123456789.123';
+      before(()=> {
+        dynamicNumber.calculate(value);
+      });
+      it('should modelValue equal -123456789.123', ()=> {
+        expect(dynamicNumber.modelValue).to.be.equal(-123456789.123);
+      });
+      it('should viewValue equal \'-123 456 789.123\'', ()=> {
+        expect(dynamicNumber.viewValue).to.be.equal('-123 456 789.123');
+      });
+    });
+    describe('value=\'123456789.123\'', ()=> {
+      var value = '123456789.123';
+      before(()=> {
+        dynamicNumber.calculate(value);
+      });
+      it('should modelValue equal 123456789.123', ()=> {
+        expect(dynamicNumber.modelValue).to.be.equal(123456789.123);
+      });
+      it('should viewValue equal \'123 456 789.123\'', ()=> {
+        expect(dynamicNumber.viewValue).to.be.equal('123 456 789.123');
       });
     });
   });
