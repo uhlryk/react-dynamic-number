@@ -31,11 +31,11 @@ class DynamicNumberComponent extends React.Component {
     this.dynamicNumber.positive = this.props.positive;
     this.dynamicNumber.negative = this.props.negative;
     this.dynamicNumber.thousand = this.props.thousand;
-
+    this.dynamicNumber.calculate(props.value, props.value, '0');
 
     this.state = {
-      modelValue: 0,
-      viewValue: '0'
+      modelValue: this.dynamicNumber.modelValue,
+      viewValue: this.dynamicNumber.viewValue
     }
 
     this.onChange= this.onChange.bind(this);
