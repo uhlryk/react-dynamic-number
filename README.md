@@ -91,6 +91,8 @@ It needs react to work correctly. It is compiled without react at its source.
  
 Init value of input. If init value is '' then input is empty.
 
+**When you set this prop, then component became a [Controlled Component](https://facebook.github.io/react/docs/forms.html#controlled-components)**
+
 ### separator
 
  * type: String

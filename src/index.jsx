@@ -51,12 +51,12 @@ class DynamicNumberComponent extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if(nextProps.value == ''){
+    if(nextProps.value === ''){
       this.state = {
         modelValue: '',
         viewValue: ''
       }
-    } else {
+    } else if(nextProps.value !== undefined){
       this.calculator.calculate(nextProps.value, nextProps.value, 0);
 
       this.state = {
