@@ -4,7 +4,14 @@ import DynamicNumber from './dynamicNumber';
 class DynamicNumberComponent extends React.Component {
 
   static propTypes = {
-    value: React.PropTypes.number,
+    value: React.PropTypes.oneOfType([
+      React.PropTypes.number,
+      (props, propName) => {
+        if(props[propName] != ''){
+          return new Error('value must be a number or empty string');
+        }
+      }
+    ]),
     integer: React.PropTypes.number,
     fraction: React.PropTypes.number,
     positive: React.PropTypes.bool,
@@ -31,14 +38,32 @@ class DynamicNumberComponent extends React.Component {
     this.dynamicNumber.positive = this.props.positive;
     this.dynamicNumber.negative = this.props.negative;
     this.dynamicNumber.thousand = this.props.thousand;
-    this.dynamicNumber.calculate(props.value, props.value, '0');
+
+    this.calculator = this.dynamicNumber.clone()
+    this.calculator.calculate(props.value, props.value, '0');
 
     this.state = {
-      modelValue: this.dynamicNumber.modelValue,
-      viewValue: this.dynamicNumber.viewValue
+      modelValue: this.calculator.modelValue,
+      viewValue: this.calculator.viewValue
     }
 
     this.onChange= this.onChange.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.value == ''){
+      this.state = {
+        modelValue: '',
+        viewValue: ''
+      }
+    } else {
+      this.calculator.calculate(nextProps.value, nextProps.value, 0);
+
+      this.state = {
+        modelValue: this.calculator.modelValue,
+        viewValue: this.calculator.viewValue
+      }
+    }
   }
 
   onChange(evt) {
@@ -64,7 +89,11 @@ class DynamicNumberComponent extends React.Component {
   }
 
   render() {
-    return <input type="text" className={this.props.className} value={this.state.viewValue} onChange={this.onChange} />
+    return <input type="text"
+                  placeholder={this.props.placeholder}
+                  className={this.props.className}
+                  value={this.state.viewValue}
+                  onChange={this.onChange} />
   }
 }
 

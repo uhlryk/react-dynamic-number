@@ -9,7 +9,21 @@ class DynamicNumber {
     this._regexp = this._buildRegexp();
     this._isThousand = false;
     this._thousand = null;
+  }
 
+  clone(){
+    var other = new DynamicNumber
+    other._separator = this._separator;
+    other._integer = this._integer;
+    other._fraction = this._fraction;
+    other._positive = this._positive;
+    other._negative = this._negative;
+    other._regexp = this._regexp;
+    other._isThousand = this._isThousand;
+    other._thousand = this._thousand;
+    other._cursor = this._cursor;
+
+    return other
   }
 
   set separator(sep) {
