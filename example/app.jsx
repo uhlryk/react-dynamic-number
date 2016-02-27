@@ -28,7 +28,7 @@ class App extends React.Component {
             <form name="directiveForm" className="form-horizontal" >
               <div className="form-group">
                 <label className="control-label">Number may be positive or negative, decimal separator comma, integer 5 chars</label>
-                <DynamicNumber className="form-control" onChange={this.onChange.bind(this,0)} separator={','} integer={5} fraction={5} />
+                <DynamicNumber className="form-control" onChange={this.onChange.bind(this,0)} value={''} placeholder={'XXXXX,XXXXX'} separator={','} integer={5} fraction={5} />
                 <div>How looks model: {this.state.example[0]}</div>
               </div>
               <div className="form-group">

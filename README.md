@@ -85,11 +85,11 @@ It needs react to work correctly. It is compiled without react at its source.
 
 ### value
  
- * type: Number
+ * type: Number or '' (empty string)
  * required: false
  * default: 0
  
-Init value of input
+Init value of input. If init value is '' then input is empty.
 
 ### separator
 
@@ -154,6 +154,14 @@ Define if number may be negative
   
 Define number decimal separator
 
+### placeholder
+
+ * type: string
+ * required: false
+ * default: none
+ 
+Allow to set placeholder to empty input
+ 
 ### onChange
   
  * type: Function (callback)
