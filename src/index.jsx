@@ -89,9 +89,11 @@ class DynamicNumberComponent extends React.Component {
   }
 
   render() {
+    var { separator, integer, fraction, positive, negative, thousand, ...other } = this.props;
     return <input type="text"
                   placeholder={this.props.placeholder}
                   className={this.props.className}
+                  {...other}
                   value={this.state.viewValue}
                   onChange={this.onChange} />
   }

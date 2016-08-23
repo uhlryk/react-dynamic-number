@@ -44,7 +44,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';var _createClass=(function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value" in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};})();var _react=__webpack_require__(1);var _react2=_interopRequireDefault(_react);var _reactDom=__webpack_require__(158);var _reactDom2=_interopRequireDefault(_reactDom);var _index=__webpack_require__(159);var _index2=_interopRequireDefault(_index);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var App=(function(_React$Component){_inherits(App,_React$Component);function App(props){_classCallCheck(this,App);var _this=_possibleConstructorReturn(this,Object.getPrototypeOf(App).call(this,props));_this.state={example:[]};return _this;}_createClass(App,[{key:'onChange',value:function onChange(index,evt,modelValue){var example=this.state.example.slice();example[index]=modelValue;this.setState({example:example});}},{key:'render',value:function render(){return _react2.default.createElement('div',{className:'container-fluid content'},_react2.default.createElement('div',{className:'col-sm-10 com-sm-offset-1 col-md-8 col-md-offset-2'},_react2.default.createElement('div',{className:'row'},_react2.default.createElement('h1',null,'Example of react dynamic number component'),_react2.default.createElement('form',{name:'directiveForm',className:'form-horizontal'},_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{className:'control-label'},'Number may be positive or negative, decimal separator comma, integer 5 chars'),_react2.default.createElement(_index2.default,{className:'form-control',onChange:this.onChange.bind(this,0),separator:',',integer:5,fraction:5}),_react2.default.createElement('div',null,'How looks model: ',this.state.example[0])),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{className:'control-label'},'Number may be positive or negative, decimal separator dot, integer 6 chars'),_react2.default.createElement(_index2.default,{className:'form-control',onChange:this.onChange.bind(this,1),separator:'.',integer:6,fraction:2}),_react2.default.createElement('div',null,'How looks model: ',this.state.example[1])),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{className:'control-label'},'Number may be only positive, decimal separator dot, integer 6 chars'),_react2.default.createElement(_index2.default,{className:'form-control',onChange:this.onChange.bind(this,2),separator:'.',integer:6,fraction:2,negative:false}),_react2.default.createElement('div',null,'How looks model: ',this.state.example[2])),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{className:'control-label'},'Number may be only negative, decimal separator dot, integer 6 chars'),_react2.default.createElement(_index2.default,{className:'form-control',onChange:this.onChange.bind(this,3),separator:'.',integer:6,fraction:2,positive:false}),_react2.default.createElement('div',null,'How looks model: ',this.state.example[3])),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{className:'control-label'},'Decimal separator dot, thousand separator comma, integer 10 chars'),_react2.default.createElement(_index2.default,{className:'form-control',onChange:this.onChange.bind(this,4),separator:'.',integer:10,fraction:3,thousand:true}),_react2.default.createElement('div',null,'How looks model: ',this.state.example[4])),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{className:'control-label'},'Decimal separator dot, thousand separator space, integer 10 chars'),_react2.default.createElement(_index2.default,{className:'form-control',onChange:this.onChange.bind(this,5),separator:'.',integer:10,fraction:3,thousand:' '}),_react2.default.createElement('div',null,'How looks model: ',this.state.example[5])),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{className:'control-label'},'Decimal separator dot, thousand separator space, integer 10 chars, base value 1200.05'),_react2.default.createElement(_index2.default,{className:'form-control',onChange:this.onChange.bind(this,6),separator:'.',integer:10,fraction:3,thousand:' ',value:1200.05}),_react2.default.createElement('div',null,'How looks model: ',this.state.example[6]))))));}}]);return App;})(_react2.default.Component);_reactDom2.default.render(_react2.default.createElement(App,null),document.getElementById('app'));
+	'use strict';var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=__webpack_require__(1);var _react2=_interopRequireDefault(_react);var _reactDom=__webpack_require__(158);var _reactDom2=_interopRequireDefault(_reactDom);var _index=__webpack_require__(159);var _index2=_interopRequireDefault(_index);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var App=function(_React$Component){_inherits(App,_React$Component);function App(props){_classCallCheck(this,App);var _this=_possibleConstructorReturn(this,Object.getPrototypeOf(App).call(this,props));_this.state={example:[]};return _this;}_createClass(App,[{key:'onChange',value:function onChange(index,evt,modelValue){var example=this.state.example.slice();example[index]=modelValue;this.setState({example:example});}},{key:'render',value:function render(){return _react2.default.createElement('div',{className:'container-fluid content'},_react2.default.createElement('div',{className:'col-sm-10 com-sm-offset-1 col-md-8 col-md-offset-2'},_react2.default.createElement('div',{className:'row'},_react2.default.createElement('h1',null,'Example of react dynamic number component'),_react2.default.createElement('form',{name:'directiveForm',className:'form-horizontal'},_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{className:'control-label'},'Number may be positive or negative, decimal separator comma, integer 5 chars'),_react2.default.createElement(_index2.default,{className:'form-control',onChange:this.onChange.bind(this,0),separator:',',integer:5,fraction:5}),_react2.default.createElement('div',null,'How looks model: ',this.state.example[0])),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{className:'control-label'},'Number may be positive or negative, decimal separator dot, integer 6 chars'),_react2.default.createElement(_index2.default,{className:'form-control',onChange:this.onChange.bind(this,1),separator:'.',integer:6,fraction:2}),_react2.default.createElement('div',null,'How looks model: ',this.state.example[1])),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{className:'control-label'},'Number may be only positive, decimal separator dot, integer 6 chars'),_react2.default.createElement(_index2.default,{className:'form-control',onChange:this.onChange.bind(this,2),separator:'.',integer:6,fraction:2,negative:false}),_react2.default.createElement('div',null,'How looks model: ',this.state.example[2])),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{className:'control-label'},'Number may be only negative, decimal separator dot, integer 6 chars'),_react2.default.createElement(_index2.default,{className:'form-control',onChange:this.onChange.bind(this,3),separator:'.',integer:6,fraction:2,positive:false}),_react2.default.createElement('div',null,'How looks model: ',this.state.example[3])),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{className:'control-label'},'Decimal separator dot, thousand separator comma, integer 10 chars'),_react2.default.createElement(_index2.default,{className:'form-control',onChange:this.onChange.bind(this,4),separator:'.',integer:10,fraction:3,thousand:true}),_react2.default.createElement('div',null,'How looks model: ',this.state.example[4])),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{className:'control-label'},'Decimal separator dot, thousand separator space, integer 10 chars'),_react2.default.createElement(_index2.default,{className:'form-control',onChange:this.onChange.bind(this,5),separator:'.',integer:10,fraction:3,thousand:' '}),_react2.default.createElement('div',null,'How looks model: ',this.state.example[5])),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{className:'control-label'},'Decimal separator dot, thousand separator space, integer 10 chars, base value 1200.05'),_react2.default.createElement(_index2.default,{className:'form-control',onChange:this.onChange.bind(this,6),separator:'.',integer:10,fraction:3,thousand:' ',value:1200.05}),_react2.default.createElement('div',null,'How looks model: ',this.state.example[6]))))));}}]);return App;}(_react2.default.Component);_reactDom2.default.render(_react2.default.createElement(App,null),document.getElementById('app'));
 
 /***/ },
 /* 1 */
@@ -203,14 +203,55 @@
 /***/ function(module, exports) {
 
 	// shim for using process in browser
-	
 	var process = module.exports = {};
+	
+	// cached from whatever global is present so that test runners that stub it
+	// don't break things.  But we need to wrap it in a try catch in case it is
+	// wrapped in strict mode code which doesn't define any globals.  It's inside a
+	// function because try/catches deoptimize in certain engines.
+	
+	var cachedSetTimeout;
+	var cachedClearTimeout;
+	
+	(function () {
+	    try {
+	        cachedSetTimeout = setTimeout;
+	    } catch (e) {
+	        cachedSetTimeout = function () {
+	            throw new Error('setTimeout is not defined');
+	        }
+	    }
+	    try {
+	        cachedClearTimeout = clearTimeout;
+	    } catch (e) {
+	        cachedClearTimeout = function () {
+	            throw new Error('clearTimeout is not defined');
+	        }
+	    }
+	} ())
+	function runTimeout(fun) {
+	    if (cachedSetTimeout === setTimeout) {
+	        return setTimeout(fun, 0);
+	    } else {
+	        return cachedSetTimeout.call(null, fun, 0);
+	    }
+	}
+	function runClearTimeout(marker) {
+	    if (cachedClearTimeout === clearTimeout) {
+	        clearTimeout(marker);
+	    } else {
+	        cachedClearTimeout.call(null, marker);
+	    }
+	}
 	var queue = [];
 	var draining = false;
 	var currentQueue;
 	var queueIndex = -1;
 	
 	function cleanUpNextTick() {
+	    if (!draining || !currentQueue) {
+	        return;
+	    }
 	    draining = false;
 	    if (currentQueue.length) {
 	        queue = currentQueue.concat(queue);
@@ -226,7 +267,7 @@
 	    if (draining) {
 	        return;
 	    }
-	    var timeout = setTimeout(cleanUpNextTick);
+	    var timeout = runTimeout(cleanUpNextTick);
 	    draining = true;
 	
 	    var len = queue.length;
@@ -243,7 +284,7 @@
 	    }
 	    currentQueue = null;
 	    draining = false;
-	    clearTimeout(timeout);
+	    runClearTimeout(timeout);
 	}
 	
 	process.nextTick = function (fun) {
@@ -255,7 +296,7 @@
 	    }
 	    queue.push(new Item(fun, args));
 	    if (queue.length === 1 && !draining) {
-	        setTimeout(drainQueue, 0);
+	        runTimeout(drainQueue);
 	    }
 	};
 	
@@ -7945,6 +7986,10 @@
 	  }
 	};
 	
+	function registerNullComponentID() {
+	  ReactEmptyComponentRegistry.registerNullComponentID(this._rootNodeID);
+	}
+	
 	var ReactEmptyComponent = function (instantiate) {
 	  this._currentElement = null;
 	  this._rootNodeID = null;
@@ -7953,7 +7998,7 @@
 	assign(ReactEmptyComponent.prototype, {
 	  construct: function (element) {},
 	  mountComponent: function (rootID, transaction, context) {
-	    ReactEmptyComponentRegistry.registerNullComponentID(rootID);
+	    transaction.getReactMountReady().enqueue(registerNullComponentID, this);
 	    this._rootNodeID = rootID;
 	    return ReactReconciler.mountComponent(this._renderedComponent, rootID, transaction, context);
 	  },
@@ -9303,6 +9348,7 @@
 	 */
 	var EventInterface = {
 	  type: null,
+	  target: null,
 	  // currentTarget is set when dispatching; no use in copying it here
 	  currentTarget: emptyFunction.thatReturnsNull,
 	  eventPhase: null,
@@ -9336,8 +9382,6 @@
 	  this.dispatchConfig = dispatchConfig;
 	  this.dispatchMarker = dispatchMarker;
 	  this.nativeEvent = nativeEvent;
-	  this.target = nativeEventTarget;
-	  this.currentTarget = nativeEventTarget;
 	
 	  var Interface = this.constructor.Interface;
 	  for (var propName in Interface) {
@@ -9348,7 +9392,11 @@
 	    if (normalize) {
 	      this[propName] = normalize(nativeEvent);
 	    } else {
-	      this[propName] = nativeEvent[propName];
+	      if (propName === 'target') {
+	        this.target = nativeEventTarget;
+	      } else {
+	        this[propName] = nativeEvent[propName];
+	      }
 	    }
 	  }
 	
@@ -13197,7 +13245,10 @@
 	      }
 	    });
 	
-	    nativeProps.children = content;
+	    if (content) {
+	      nativeProps.children = content;
+	    }
+	
 	    return nativeProps;
 	  }
 	
@@ -16657,15 +16708,21 @@
 	 * @typechecks
 	 */
 	
+	/* eslint-disable fb-www/typeof-undefined */
+	
 	/**
 	 * Same as document.activeElement but wraps in a try-catch block. In IE it is
 	 * not safe to call document.activeElement if there is nothing focused.
 	 *
-	 * The activeElement will be null only if the document body is not yet defined.
+	 * The activeElement will be null only if the document or document body is not
+	 * yet defined.
 	 */
-	"use strict";
+	'use strict';
 	
 	function getActiveElement() /*?DOMElement*/{
+	  if (typeof document === 'undefined') {
+	    return null;
+	  }
 	  try {
 	    return document.activeElement || document.body;
 	  } catch (e) {
@@ -18664,7 +18721,7 @@
 	
 	'use strict';
 	
-	module.exports = '0.14.5';
+	module.exports = '0.14.8';
 
 /***/ },
 /* 147 */
@@ -19639,24 +19696,24 @@
 /* 159 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';var _createClass=(function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value" in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};})();Object.defineProperty(exports,"__esModule",{value:true});var _react=__webpack_require__(1);var _react2=_interopRequireDefault(_react);var _dynamicNumber=__webpack_require__(160);var _dynamicNumber2=_interopRequireDefault(_dynamicNumber);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var DynamicNumberComponent=(function(_React$Component){_inherits(DynamicNumberComponent,_React$Component);function DynamicNumberComponent(props){_classCallCheck(this,DynamicNumberComponent);var _this=_possibleConstructorReturn(this,Object.getPrototypeOf(DynamicNumberComponent).call(this,props));_this.dynamicNumber=new _dynamicNumber2.default();_this.dynamicNumber.separator=_this.props.separator;_this.dynamicNumber.integer=_this.props.integer;_this.dynamicNumber.fraction=_this.props.fraction;_this.dynamicNumber.positive=_this.props.positive;_this.dynamicNumber.negative=_this.props.negative;_this.dynamicNumber.thousand=_this.props.thousand;_this.calculator=_this.dynamicNumber.clone();_this.calculator.calculate(props.value,props.value,'0');_this.state={modelValue:_this.calculator.modelValue,viewValue:_this.calculator.viewValue};_this.onChange=_this.onChange.bind(_this);return _this;}_createClass(DynamicNumberComponent,[{key:'componentWillReceiveProps',value:function componentWillReceiveProps(nextProps){if(nextProps.value===''){this.state={modelValue:'',viewValue:''};}else if(nextProps.value!==undefined){this.calculator.calculate(nextProps.value,nextProps.value,0);this.state={modelValue:this.calculator.modelValue,viewValue:this.calculator.viewValue};}}},{key:'onChange',value:function onChange(evt){var _this2=this;var target=evt.target;this.dynamicNumber.calculate(evt.target.value,this.state.modelValue,this.state.viewValue,target.selectionStart);var modelValue=this.dynamicNumber.modelValue;var viewValue=this.dynamicNumber.viewValue;if(this.props.onChange){this.props.onChange(evt,modelValue,viewValue);}this.setState({modelValue:modelValue,viewValue:viewValue},function(){ //after value change we set cursor position
-	if(target.selectionStart!==undefined&&target.selectionStart!==null){target.selectionStart=target.selectionEnd=_this2.dynamicNumber.cursorPosition;}});}},{key:'render',value:function render(){return _react2.default.createElement('input',{type:'text',placeholder:this.props.placeholder,className:this.props.className,value:this.state.viewValue,onChange:this.onChange});}}]);return DynamicNumberComponent;})(_react2.default.Component);DynamicNumberComponent.propTypes={value:_react2.default.PropTypes.oneOfType([_react2.default.PropTypes.number,function(props,propName){if(props[propName]!=''){return new Error('value must be a number or empty string');}}]),integer:_react2.default.PropTypes.number,fraction:_react2.default.PropTypes.number,positive:_react2.default.PropTypes.bool,negative:_react2.default.PropTypes.bool,separator:function separator(props,propName){if(props[propName]!==undefined&&props[propName]!==','&&props[propName]!=='.'){return new Error('separator have to be comma or dot char');}},thousand:function thousand(props,propName){if(props[propName]!==undefined&&props[propName]!==true&&props[propName]!==false&&props[propName]!==' '){return new Error('thousand have to be bool value or space character');}}};exports.default=DynamicNumberComponent;
+	'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=__webpack_require__(1);var _react2=_interopRequireDefault(_react);var _dynamicNumber=__webpack_require__(160);var _dynamicNumber2=_interopRequireDefault(_dynamicNumber);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _objectWithoutProperties(obj,keys){var target={};for(var i in obj){if(keys.indexOf(i)>=0)continue;if(!Object.prototype.hasOwnProperty.call(obj,i))continue;target[i]=obj[i];}return target;}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var DynamicNumberComponent=function(_React$Component){_inherits(DynamicNumberComponent,_React$Component);function DynamicNumberComponent(props){_classCallCheck(this,DynamicNumberComponent);var _this=_possibleConstructorReturn(this,Object.getPrototypeOf(DynamicNumberComponent).call(this,props));_this.dynamicNumber=new _dynamicNumber2.default();_this.dynamicNumber.separator=_this.props.separator;_this.dynamicNumber.integer=_this.props.integer;_this.dynamicNumber.fraction=_this.props.fraction;_this.dynamicNumber.positive=_this.props.positive;_this.dynamicNumber.negative=_this.props.negative;_this.dynamicNumber.thousand=_this.props.thousand;_this.calculator=_this.dynamicNumber.clone();_this.calculator.calculate(props.value,props.value,'0');_this.state={modelValue:_this.calculator.modelValue,viewValue:_this.calculator.viewValue};_this.onChange=_this.onChange.bind(_this);return _this;}_createClass(DynamicNumberComponent,[{key:'componentWillReceiveProps',value:function componentWillReceiveProps(nextProps){if(nextProps.value===''){this.state={modelValue:'',viewValue:''};}else if(nextProps.value!==undefined){this.calculator.calculate(nextProps.value,nextProps.value,0);this.state={modelValue:this.calculator.modelValue,viewValue:this.calculator.viewValue};}}},{key:'onChange',value:function onChange(evt){var _this2=this;var target=evt.target;this.dynamicNumber.calculate(evt.target.value,this.state.modelValue,this.state.viewValue,target.selectionStart);var modelValue=this.dynamicNumber.modelValue;var viewValue=this.dynamicNumber.viewValue;if(this.props.onChange){this.props.onChange(evt,modelValue,viewValue);}this.setState({modelValue:modelValue,viewValue:viewValue},function(){//after value change we set cursor position
+	if(target.selectionStart!==undefined&&target.selectionStart!==null){target.selectionStart=target.selectionEnd=_this2.dynamicNumber.cursorPosition;}});}},{key:'render',value:function render(){var _props=this.props;var separator=_props.separator;var integer=_props.integer;var fraction=_props.fraction;var positive=_props.positive;var negative=_props.negative;var thousand=_props.thousand;var other=_objectWithoutProperties(_props,['separator','integer','fraction','positive','negative','thousand']);return _react2.default.createElement('input',_extends({type:'text',placeholder:this.props.placeholder,className:this.props.className},other,{value:this.state.viewValue,onChange:this.onChange}));}}]);return DynamicNumberComponent;}(_react2.default.Component);DynamicNumberComponent.propTypes={value:_react2.default.PropTypes.oneOfType([_react2.default.PropTypes.number,function(props,propName){if(props[propName]!=''){return new Error('value must be a number or empty string');}}]),integer:_react2.default.PropTypes.number,fraction:_react2.default.PropTypes.number,positive:_react2.default.PropTypes.bool,negative:_react2.default.PropTypes.bool,separator:function separator(props,propName){if(props[propName]!==undefined&&props[propName]!==','&&props[propName]!=='.'){return new Error('separator have to be comma or dot char');}},thousand:function thousand(props,propName){if(props[propName]!==undefined&&props[propName]!==true&&props[propName]!==false&&props[propName]!==' '){return new Error('thousand have to be bool value or space character');}}};exports.default=DynamicNumberComponent;
 
 /***/ },
 /* 160 */
 /***/ function(module, exports) {
 
-	'use strict';var _createClass=(function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value" in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};})();Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}var DynamicNumber=(function(){function DynamicNumber(){_classCallCheck(this,DynamicNumber);this._separator='.';this._integer=10;this._fraction=10;this._positive=true;this._negative=true;this._regexp=this._buildRegexp();this._isThousand=false;this._thousand=null;}_createClass(DynamicNumber,[{key:'clone',value:function clone(){var other=new DynamicNumber();other._separator=this._separator;other._integer=this._integer;other._fraction=this._fraction;other._positive=this._positive;other._negative=this._negative;other._regexp=this._regexp;other._isThousand=this._isThousand;other._thousand=this._thousand;other._cursor=this._cursor;return other;}},{key:'calculate',value:function calculate(){var rawViewValue=arguments.length<=0||arguments[0]===undefined?0:arguments[0];var oldModelValue=arguments.length<=1||arguments[1]===undefined?0:arguments[1];var oldViewValue=arguments.length<=2||arguments[2]===undefined?'0':arguments[2];var cursorPosition=arguments.length<=3||arguments[3]===undefined?null:arguments[3];this._rawViewValue=rawViewValue;this._oldModelValue=oldModelValue;this._oldViewValue=oldViewValue;this._newModelValue=0;this._newViewValue='';this._cursor=cursorPosition;var value=String(this._rawViewValue);value=this._removeThousandSeparator(value);value=this._removeLeadingZero(value);if(value===''&&String(this._rawViewValue).charAt(0)==='0'){this._newModelValue=0;this._newViewValue='0';return 0;}if(value===undefined||value===''){this._newModelValue=0;this._newViewValue='';return;}if(value==='-'){this._newModelValue=0;this._newViewValue='-';return;} //test fails, therefore we use old values
-	if(this._regexp.test(value)===false){this._newModelValue=this._oldModelValue;this._newViewValue=this._oldViewValue;return;} // view value success 'correct view format' test
-	else {this._newModelValue=this._createModelValue(value);this._newViewValue=this._createViewValue(value);this._cursor=this._calculateNewCursorPosition();return;}}},{key:'_calculateThousandSeparator', /**
+	'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}var DynamicNumber=function(){function DynamicNumber(){_classCallCheck(this,DynamicNumber);this._separator='.';this._integer=10;this._fraction=10;this._positive=true;this._negative=true;this._regexp=this._buildRegexp();this._isThousand=false;this._thousand=null;}_createClass(DynamicNumber,[{key:'clone',value:function clone(){var other=new DynamicNumber();other._separator=this._separator;other._integer=this._integer;other._fraction=this._fraction;other._positive=this._positive;other._negative=this._negative;other._regexp=this._regexp;other._isThousand=this._isThousand;other._thousand=this._thousand;other._cursor=this._cursor;return other;}},{key:'calculate',value:function calculate(){var rawViewValue=arguments.length<=0||arguments[0]===undefined?0:arguments[0];var oldModelValue=arguments.length<=1||arguments[1]===undefined?0:arguments[1];var oldViewValue=arguments.length<=2||arguments[2]===undefined?'0':arguments[2];var cursorPosition=arguments.length<=3||arguments[3]===undefined?null:arguments[3];this._rawViewValue=rawViewValue;this._oldModelValue=oldModelValue;this._oldViewValue=oldViewValue;this._newModelValue=0;this._newViewValue='';this._cursor=cursorPosition;var value=String(this._rawViewValue);value=this._removeThousandSeparator(value);value=this._removeLeadingZero(value);if(value===''&&String(this._rawViewValue).charAt(0)==='0'){this._newModelValue=0;this._newViewValue='0';return 0;}if(value===undefined||value===''){this._newModelValue=0;this._newViewValue='';return;}if(value==='-'){this._newModelValue=0;this._newViewValue='-';return;}//test fails, therefore we use old values
+	if(this._regexp.test(value)===false){this._newModelValue=this._oldModelValue;this._newViewValue=this._oldViewValue;return;}// view value success 'correct view format' test
+	else{this._newModelValue=this._createModelValue(value);this._newViewValue=this._createViewValue(value);this._cursor=this._calculateNewCursorPosition();return;}}},{key:'_calculateThousandSeparator',/**
 	   * private function which calculate thousand separator.
-	  */value:function _calculateThousandSeparator(){if(this._thousand!==' '){if(this._separator==='.'){this._thousand=',';}else {this._thousand='.';}}} /**
+	  */value:function _calculateThousandSeparator(){if(this._thousand!==' '){if(this._separator==='.'){this._thousand=',';}else{this._thousand='.';}}}/**
 	   * calculate new cursor position based on rawvalue and actual cursor position
-	     */},{key:'_calculateNewCursorPosition',value:function _calculateNewCursorPosition(){var valuePartBeforeCursor=String(this._rawViewValue).slice(0,this._cursor);valuePartBeforeCursor=this._removeThousandSeparator(valuePartBeforeCursor);valuePartBeforeCursor=this._removeLeadingZero(valuePartBeforeCursor);var currentPosition=valuePartBeforeCursor.length;if(this._isThousand){var countPosition=0;var countDots=0;var i=undefined;var len=this._newViewValue.length;for(i=0;i<len;i++){if(this._newViewValue[i]!==this._thousand){countPosition++;if(countPosition>=currentPosition){break;}}else {countDots++;}}currentPosition+=countDots;}return currentPosition;}},{key:'_buildRegexp',value:function _buildRegexp(){var negativeRegex='-?';if(this._positive===false&&this._negative===true){negativeRegex='-';}else if(this._positive===true&&this._negative===false){negativeRegex='';}var intRegex='[0-9]{0,'+this._integer+'}';if(this._integer===0){intRegex='0';}var fractRegex='(\\'+this._separator+'([0-9]){0,'+this._fraction+'})';if(this._fraction===0){fractRegex='';}return new RegExp('^'+negativeRegex+intRegex+fractRegex+'?$');}},{key:'_removeLeadingZero',value:function _removeLeadingZero(value){return value.replace(/^0+/g,"") //change 00000 to ''
-	.replace(/^-0(\d+)/g,"-$1") //change -013212 to -0
-	.replace(/^-([\.,])/,"-0$1") //change -. to -0.
-	.replace(/^[\.,]/g,"0$&"); //change . to 0.
-	}},{key:'_removeThousandSeparator',value:function _removeThousandSeparator(value){if(this._isThousand){return value.replace(new RegExp('\\'+this._thousand,'g'),'');}else {return value;}}},{key:'_createModelValue',value:function _createModelValue(value){if(this._separator===','){return parseFloat(value.replace(/\./g,"").replace(",","."));}else {return parseFloat(value.replace(/,/g,""));}}},{key:'_createViewValue',value:function _createViewValue(value){if(this._isThousand){value=value.split(this._separator);value[0]=value[0].replace(/\B(?=(\d{3})+(?!\d))/g,this._thousand);return value.join(this._separator);}else {return value;}}},{key:'separator',set:function set(sep){this._separator=sep==='.'||sep===','?sep:this._separator;this._regexp=this._buildRegexp();this._calculateThousandSeparator();}},{key:'integer',set:function set(part){if(part>=0){var _part=parseInt(part,10);if(isNaN(_part)===false&&isFinite(_part)&&_part>=0){this._integer=_part;}}this._regexp=this._buildRegexp();}},{key:'fraction',set:function set(part){if(part>=0){var _part=parseInt(part,10);if(isNaN(_part)===false&&isFinite(_part)&&_part>=0){this._fraction=_part;}}this._regexp=this._buildRegexp();}},{key:'positive',set:function set(isPositive){if(isPositive===true||isPositive===false){this._positive=isPositive;}this._regexp=this._buildRegexp();}},{key:'negative',set:function set(isNegative){if(isNegative===true||isNegative===false){this._negative=isNegative;}this._regexp=this._buildRegexp();}},{key:'thousand',set:function set(value){this._isThousand=value||value===' ';if(value===' '){this._thousand=' ';}this._calculateThousandSeparator();}},{key:'modelValue',get:function get(){return this._newModelValue;}},{key:'viewValue',get:function get(){return this._newViewValue;}},{key:'cursorPosition',get:function get(){return this._cursor;}}]);return DynamicNumber;})();exports.default=DynamicNumber;
+	     */},{key:'_calculateNewCursorPosition',value:function _calculateNewCursorPosition(){var valuePartBeforeCursor=String(this._rawViewValue).slice(0,this._cursor);valuePartBeforeCursor=this._removeThousandSeparator(valuePartBeforeCursor);valuePartBeforeCursor=this._removeLeadingZero(valuePartBeforeCursor);var currentPosition=valuePartBeforeCursor.length;if(this._isThousand){var countPosition=0;var countDots=0;var i=void 0;var len=this._newViewValue.length;for(i=0;i<len;i++){if(this._newViewValue[i]!==this._thousand){countPosition++;if(countPosition>=currentPosition){break;}}else{countDots++;}}currentPosition+=countDots;}return currentPosition;}},{key:'_buildRegexp',value:function _buildRegexp(){var negativeRegex='-?';if(this._positive===false&&this._negative===true){negativeRegex='-';}else if(this._positive===true&&this._negative===false){negativeRegex='';}var intRegex='[0-9]{0,'+this._integer+'}';if(this._integer===0){intRegex='0';}var fractRegex='(\\'+this._separator+'([0-9]){0,'+this._fraction+'})';if(this._fraction===0){fractRegex='';}return new RegExp('^'+negativeRegex+intRegex+fractRegex+'?$');}},{key:'_removeLeadingZero',value:function _removeLeadingZero(value){return value.replace(/^0+/g,"")//change 00000 to ''
+	.replace(/^-0(\d+)/g,"-$1")//change -013212 to -0
+	.replace(/^-([\.,])/,"-0$1")//change -. to -0.
+	.replace(/^[\.,]/g,"0$&");//change . to 0.
+	}},{key:'_removeThousandSeparator',value:function _removeThousandSeparator(value){if(this._isThousand){return value.replace(new RegExp('\\'+this._thousand,'g'),'');}else{return value;}}},{key:'_createModelValue',value:function _createModelValue(value){if(this._separator===','){return parseFloat(value.replace(/\./g,"").replace(",","."));}else{return parseFloat(value.replace(/,/g,""));}}},{key:'_createViewValue',value:function _createViewValue(value){if(this._isThousand){value=value.split(this._separator);value[0]=value[0].replace(/\B(?=(\d{3})+(?!\d))/g,this._thousand);return value.join(this._separator);}else{return value;}}},{key:'separator',set:function set(sep){this._separator=sep==='.'||sep===','?sep:this._separator;this._regexp=this._buildRegexp();this._calculateThousandSeparator();}},{key:'integer',set:function set(part){if(part>=0){var _part=parseInt(part,10);if(isNaN(_part)===false&&isFinite(_part)&&_part>=0){this._integer=_part;}}this._regexp=this._buildRegexp();}},{key:'fraction',set:function set(part){if(part>=0){var _part=parseInt(part,10);if(isNaN(_part)===false&&isFinite(_part)&&_part>=0){this._fraction=_part;}}this._regexp=this._buildRegexp();}},{key:'positive',set:function set(isPositive){if(isPositive===true||isPositive===false){this._positive=isPositive;}this._regexp=this._buildRegexp();}},{key:'negative',set:function set(isNegative){if(isNegative===true||isNegative===false){this._negative=isNegative;}this._regexp=this._buildRegexp();}},{key:'thousand',set:function set(value){this._isThousand=value||value===' ';if(value===' '){this._thousand=' ';}this._calculateThousandSeparator();}},{key:'modelValue',get:function get(){return this._newModelValue;}},{key:'viewValue',get:function get(){return this._newViewValue;}},{key:'cursorPosition',get:function get(){return this._cursor;}}]);return DynamicNumber;}();exports.default=DynamicNumber;
 
 /***/ }
 /******/ ]);
