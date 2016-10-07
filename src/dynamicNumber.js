@@ -74,6 +74,10 @@ class DynamicNumber {
     this._calculateThousandSeparator();
   }
 
+  calculateViewFromModel(modelValue = 0) {
+    return this._createViewValueFromModel(modelValue);
+  }
+
   calculate(rawViewValue = 0, oldModelValue = 0, oldViewValue = '0', cursorPosition = null) {
     this._rawViewValue = rawViewValue;
     this._oldModelValue = oldModelValue;
@@ -88,7 +92,7 @@ class DynamicNumber {
     if(value === '' && String(this._rawViewValue).charAt(0)=== '0'){
       this._newModelValue = 0;
       this._newViewValue = '0';
-      return 0;
+      return;
     }
     if(value === undefined || value === ''){
       this._newModelValue = 0;
@@ -108,8 +112,8 @@ class DynamicNumber {
     }
      // view value success 'correct view format' test
     else {
-      this._newModelValue = this._createModelValue(value);
-      this._newViewValue = this._createViewValue(value);
+      this._newModelValue = this._createModelValueFromView(value);
+      this._newViewValue = this._createViewValueFromView(value);
       this._cursor = this._calculateNewCursorPosition();
       return;
     }
@@ -203,16 +207,27 @@ class DynamicNumber {
     }
   }
 
-  _createModelValue(value) {
+  _createModelValueFromView(value) {
     if(this._separator === ',') {
       return parseFloat(value.replace(/\./g,"").replace(",","."));
     } else {
       return parseFloat(value.replace(/,/g,""));
     }
   }
-  _createViewValue(value){
+  _createViewValueFromView(value){
     if(this._isThousand) {
       value = value.split(this._separator);
+      value[0] = value[0].replace(/\B(?=(\d{3})+(?!\d))/g, this._thousand);
+      return value.join(this._separator);
+    } else {
+      return value;
+    }
+  }
+
+  _createViewValueFromModel(modelValue){
+    var value = String(modelValue);
+    if(this._isThousand) {
+      value = value.split(".");
       value[0] = value[0].replace(/\B(?=(\d{3})+(?!\d))/g, this._thousand);
       return value.join(this._separator);
     } else {

@@ -39,8 +39,8 @@ class DynamicNumberComponent extends React.Component {
     this.dynamicNumber.negative = this.props.negative;
     this.dynamicNumber.thousand = this.props.thousand;
 
-    this.calculator = this.dynamicNumber.clone()
-    this.calculator.calculate(props.value, props.value, '0');
+    this.calculator = this.dynamicNumber.clone();
+    this.calculator.calculate(this.calculator.calculateViewFromModel(props.value), props.value, '0');
 
     this.state = {
       modelValue: this.calculator.modelValue,
@@ -90,6 +90,7 @@ class DynamicNumberComponent extends React.Component {
 
   render() {
     var { separator, integer, fraction, positive, negative, thousand, ...other } = this.props;
+    console.log(this.state);
     return <input type="text"
                   placeholder={this.props.placeholder}
                   className={this.props.className}
