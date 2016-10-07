@@ -8,6 +8,8 @@ class App extends React.Component {
     this.state = {
       example: []
     }
+    this.state.example[6] = 1200.05;
+    this.state.example[7] = 0.05;
   };
 
   onChange(index, evt, modelValue) {
@@ -58,8 +60,13 @@ class App extends React.Component {
               </div>
               <div className="form-group">
                 <label className="control-label">Decimal separator dot, thousand separator space, integer 10 chars, base value 1200.05</label>
-                <DynamicNumber className="form-control" onChange={this.onChange.bind(this,6)} separator={'.'} integer={10} fraction={3} thousand={' '} value={1200.05}/>
+                <DynamicNumber className="form-control" onChange={this.onChange.bind(this,6)} separator={'.'} integer={10} fraction={3} thousand={' '} value={this.state.example[6]}/>
                 <div>How looks model: {this.state.example[6]}</div>
+              </div>
+              <div className="form-group">
+                <label className="control-label">Decimal separator comma, integer 10 chars, base value 0.05</label>
+                <DynamicNumber className="form-control" onChange={this.onChange.bind(this,7)} separator={','} integer={10} fraction={3} thousand={' '} value={this.state.example[7]}/>
+                <div>How looks model: {this.state.example[7]}</div>
               </div>
             </form>
           </div>
