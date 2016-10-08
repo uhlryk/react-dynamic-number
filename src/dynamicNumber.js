@@ -231,7 +231,7 @@ class DynamicNumber {
       value[0] = value[0].replace(/\B(?=(\d{3})+(?!\d))/g, this._thousand);
       return value.join(this._separator);
     } else {
-      return value;
+      return value.replace(/\./g, this._separator);
     }
   }
 }

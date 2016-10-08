@@ -10,6 +10,7 @@ class App extends React.Component {
     }
     this.state.example[6] = 1200.05;
     this.state.example[7] = 0.05;
+    this.state.example[8] = 0.05;
   };
 
   onChange(index, evt, modelValue) {
@@ -64,9 +65,14 @@ class App extends React.Component {
                 <div>How looks model: {this.state.example[6]}</div>
               </div>
               <div className="form-group">
-                <label className="control-label">Decimal separator comma, integer 10 chars, base value 0.05</label>
+                <label className="control-label">Decimal separator comma, thousand separator space, integer 10 chars, base value 0.05</label>
                 <DynamicNumber className="form-control" onChange={this.onChange.bind(this,7)} separator={','} integer={10} fraction={3} thousand={' '} value={this.state.example[7]}/>
                 <div>How looks model: {this.state.example[7]}</div>
+              </div>
+              <div className="form-group">
+                <label className="control-label">Decimal separator comma, no thousand separator, integer 10 chars, base value 0.05</label>
+                <DynamicNumber className="form-control" onChange={this.onChange.bind(this,7)} separator={','} integer={10} fraction={3} value={this.state.example[8]}/>
+                <div>How looks model: {this.state.example[8]}</div>
               </div>
             </form>
           </div>
