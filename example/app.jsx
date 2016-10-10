@@ -71,7 +71,7 @@ class App extends React.Component {
               </div>
               <div className="form-group">
                 <label className="control-label">Decimal separator comma, no thousand separator, integer 10 chars, base value 0.05</label>
-                <DynamicNumber className="form-control" onChange={this.onChange.bind(this,7)} separator={','} integer={10} fraction={3} value={this.state.example[8]}/>
+                <DynamicNumber className="form-control" onChange={this.onChange.bind(this,8)} separator={','} integer={10} fraction={3} value={this.state.example[8]}/>
                 <div>How looks model: {this.state.example[8]}</div>
               </div>
             </form>
