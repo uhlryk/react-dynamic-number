@@ -175,5 +175,15 @@ Allow to set placeholder to empty input
   
 Define callback which will be trigger on any number change
 
+## FAQ
+
+### Is it works with ES5?
+ 
+ Yes it works but remember to use it :
+ 
+```
+var DynamicNumber = require('react-dynamic-number').default;
+```
+ 
 ## License
 MIT
