@@ -66,9 +66,23 @@ class DynamicNumberComponent extends React.Component {
     }
   }
 
+  // from http://stackoverflow.com/a/2897229/4138339
+  getCaretPosition (oField) {
+    var iCaretPos = 0;
+    if (document.selection) {
+      oField.focus ();
+      var oSel = document.selection.createRange ();
+      oSel.moveStart ('character', -oField.value.length);
+      iCaretPos = oSel.text.length;
+    }
+    else if (oField.selectionStart || oField.selectionStart == '0')
+      iCaretPos = oField.selectionDirection == 'backward' ? oField.selectionStart : oField.selectionEnd;
+    return (iCaretPos);
+  }
+
   onChange(evt) {
     var target = evt.target;
-    this.dynamicNumber.calculate(evt.target.value, this.state.modelValue, this.state.viewValue, target.selectionStart);
+    this.dynamicNumber.calculate(evt.target.value, this.state.modelValue, this.state.viewValue, this.getCaretPosition(target));
 
     var modelValue = this.dynamicNumber.modelValue;
     var viewValue = this.dynamicNumber.viewValue;
