@@ -1,6 +1,6 @@
 {
   "name": "react-dynamic-number",
-  "version": "1.4.6",
+  "version": "1.5.0",
   "description": "Highly customizable react component for numbers",
   "keywords": [
     "react",
@@ -39,10 +39,12 @@
     "chai": "^3.4.1",
     "chai-things": "^0.2.0",
     "mocha": "^2.3.4",
+    "react": ">=0.14.5",
+    "react-dom": ">=0.14.5",
     "webpack": "^1.12.9"
   },
-  "dependencies": {
-    "react": "^0.14.5",
-    "react-dom": "^0.14.5"
+  "peerDependencies": {
+    "react": ">=0.14.5",
+    "react-dom": ">=0.14.5"
   }
 }
