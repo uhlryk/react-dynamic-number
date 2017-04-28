@@ -8,12 +8,12 @@ module.exports = {
     filename: './release/[name].js'
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /.jsx?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
-        query: {
+        options: {
           presets: ['es2015', 'stage-0', 'react'],
           compact: true
         }
@@ -31,8 +31,8 @@ module.exports = {
     }
   ],
   plugins: [
-    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
       compress: {
         warnings: false
       }
