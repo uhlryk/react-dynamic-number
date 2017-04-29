@@ -1,21 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import DynamicNumber from './dynamicNumber';
 
 class DynamicNumberComponent extends React.Component {
 
   static propTypes = {
-    value: React.PropTypes.oneOfType([
-      React.PropTypes.number,
+    value: PropTypes.oneOfType([
+      PropTypes.number,
       (props, propName) => {
-        if(props[propName] != ''){
+        if(props[propName] !== ''){
           return new Error('value must be a number or empty string');
         }
       }
     ]),
-    integer: React.PropTypes.number,
-    fraction: React.PropTypes.number,
-    positive: React.PropTypes.bool,
-    negative: React.PropTypes.bool,
+    integer: PropTypes.number,
+    fraction: PropTypes.number,
+    positive: PropTypes.bool,
+    negative: PropTypes.bool,
     separator: (props, propName) => {
       if(props[propName] !== undefined && props[propName] !== ',' && props[propName] !== '.') {
         return new Error('separator have to be comma or dot char');
