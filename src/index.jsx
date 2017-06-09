@@ -49,6 +49,13 @@ class DynamicNumberComponent extends React.Component {
     }
 
     this.onChange= this.onChange.bind(this);
+    this.focus= this.focus.bind(this);
+  }
+
+  focus() {
+    if (this.input && this.input.focus) {
+      this.input.focus();
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -106,6 +113,7 @@ class DynamicNumberComponent extends React.Component {
   render() {
     var { separator, integer, fraction, positive, negative, thousand, ...other } = this.props;
     return <input type="text"
+                  ref={(input) => { this.input = input; }}
                   placeholder={this.props.placeholder}
                   className={this.props.className}
                   {...other}
