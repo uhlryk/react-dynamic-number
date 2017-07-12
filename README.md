@@ -185,5 +185,31 @@ Define callback which will be trigger on any number change
 var DynamicNumber = require('react-dynamic-number').default;
 ```
  
+### How to set focus on this element
+ 
+First of all you need to get ref to this component.
+How to get ref:
+```
+  <DynamicNumber ref={input => { this.input = input }} ... 
+```
+
+Ref should be use in `componentDidMount` or `componentDidUpdate` because there we are sure that everything is ready.
+
+Now you can call `focus` method on this ref.
+
+```
+  componentDidMount() {
+    this.input.focus();
+  }
+```
+
+Example from documentation [Adding a Ref to a Class Component](https://facebook.github.io/react/docs/refs-and-the-dom.html#adding-a-ref-to-a-dom-element)
+ 
+Warning:
+As you can read here [Refs and Functional Components](https://facebook.github.io/react/docs/refs-and-the-dom.html#refs-and-functional-components)
+
+> You may not use the ref attribute on functional components because they don't have instances:
+
+
 ## License
 MIT

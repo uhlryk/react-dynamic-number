@@ -22,6 +22,10 @@ class App extends React.Component {
     });
   };
 
+  componentDidMount() {
+    this.input.focus();
+  }
+
   render() {
     return (
       <div className="container-fluid content">
@@ -30,8 +34,8 @@ class App extends React.Component {
             <h1>Example of react dynamic number component</h1>
             <form name="directiveForm" className="form-horizontal" >
               <div className="form-group">
-                <label className="control-label">Number may be positive or negative, decimal separator comma, integer 5 chars</label>
-                <DynamicNumber className="form-control" onChange={this.onChange.bind(this,0)} separator={','} integer={5} fraction={5} />
+                <label className="control-label">Number may be positive or negative, decimal separator comma, integer 5 chars (in addition get focus)</label>
+                <DynamicNumber ref={input => { this.input = input }} className="form-control" onChange={this.onChange.bind(this,0)} separator={','} integer={5} fraction={5} />
                 <div>How looks model: {this.state.example[0]}</div>
               </div>
               <div className="form-group">
