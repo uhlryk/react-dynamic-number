@@ -12,7 +12,7 @@ class DynamicNumber {
   }
 
   clone(){
-    var other = new DynamicNumber
+    var other = new DynamicNumber();
     other._separator = this._separator;
     other._integer = this._integer;
     other._fraction = this._fraction;
