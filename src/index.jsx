@@ -46,7 +46,7 @@ class DynamicNumberComponent extends React.Component {
     this.state = {
       modelValue: this.calculator.modelValue,
       viewValue: this.calculator.viewValue
-    }
+    };
 
     this.onChange= this.onChange.bind(this);
     this.focus= this.focus.bind(this);
@@ -60,17 +60,17 @@ class DynamicNumberComponent extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if(nextProps.value === ''){
-      this.state = {
+      this.setState({
         modelValue: '',
         viewValue: ''
-      }
+      });
     } else if(nextProps.value !== undefined){
       this.calculator.calculate(this.calculator.calculateViewFromModel(nextProps.value), nextProps.value, "0");
 
-      this.state = {
+      this.setState({
         modelValue: this.calculator.modelValue,
         viewValue: this.calculator.viewValue
-      }
+      });
     }
   }
 
@@ -83,8 +83,8 @@ class DynamicNumberComponent extends React.Component {
       oSel.moveStart ('character', -oField.value.length);
       iCaretPos = oSel.text.length;
     }
-    else if (oField.selectionStart || oField.selectionStart == '0')
-      iCaretPos = oField.selectionDirection == 'backward' ? oField.selectionStart : oField.selectionEnd;
+    else if (oField.selectionStart || Number(oField.selectionStart) === 0)
+      iCaretPos = oField.selectionDirection === 'backward' ? oField.selectionStart : oField.selectionEnd;
     return (iCaretPos);
   }
 
