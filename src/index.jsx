@@ -26,7 +26,10 @@ class DynamicNumberComponent extends React.Component {
       if(props[propName] !== undefined && props[propName] !== true && props[propName] !== false && props[propName] !== ' ') {
         return new Error('thousand have to be bool value or space character');
       }
-    }
+    },
+    // Pass this callback in props if you wish to konow when an illegal character is inputed.
+    // For instance, you may want to higlight input's background.
+    onBadInput: PropTypes.func,
   }
 
   constructor(props) {
@@ -88,9 +91,19 @@ class DynamicNumberComponent extends React.Component {
     return (iCaretPos);
   }
 
+  fireBadInput () {
+    const {onBadInput} = this.props;
+    if (typeof onBadInput === 'function') {
+      onBadInput();
+    }
+  }
+
   onChange(evt) {
     var target = evt.target;
-    this.dynamicNumber.calculate(evt.target.value, this.state.modelValue, this.state.viewValue, this.getCaretPosition(target));
+    const isValid = this.dynamicNumber.calculate(evt.target.value, this.state.modelValue, this.state.viewValue, this.getCaretPosition(target));
+    if (!isValid) {
+      this.fireBadInput();
+    }
 
     var modelValue = this.dynamicNumber.modelValue;
     var viewValue = this.dynamicNumber.viewValue;
