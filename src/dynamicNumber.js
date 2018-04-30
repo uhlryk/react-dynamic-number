@@ -78,7 +78,7 @@ class DynamicNumber {
     return this._createViewValueFromModel(modelValue);
   }
 
-  calculate(rawViewValue = 0, oldModelValue = 0, oldViewValue = '0', cursorPosition = null) {
+  calculate(rawViewValue = 0, oldModelValue = 0, oldViewValue = '0', cursorPosition = null, oldCursorPosition = null) {
     this._rawViewValue = rawViewValue;
     this._oldModelValue = oldModelValue;
     this._oldViewValue = oldViewValue;
@@ -108,6 +108,9 @@ class DynamicNumber {
     if(this._regexp.test(value) === false){
       this._newModelValue = this._oldModelValue;
       this._newViewValue = this._oldViewValue;
+      if (oldCursorPosition !== undefined && oldCursorPosition !== null) {
+        this._cursor = oldCursorPosition;
+      }
       return false;
     }
      // view value success 'correct view format' test
@@ -130,6 +133,7 @@ class DynamicNumber {
   get cursorPosition() {
     return this._cursor;
   }
+
   /**
    * private function which calculate thousand separator.
   */
