@@ -105,7 +105,7 @@ class DynamicNumber {
       return true;
     }
     //test fails, therefore we use old values
-    if(this._regexp.test(value) === false){
+    if(this._regexp.test(value) === false) {
       this._newModelValue = this._oldModelValue;
       this._newViewValue = this._oldViewValue;
       if (oldCursorPosition !== undefined && oldCursorPosition !== null) {
@@ -192,6 +192,7 @@ class DynamicNumber {
     if(this._fraction === 0) {
       fractRegex = '';
     }
+
     return new RegExp('^'+negativeRegex+intRegex+fractRegex+'?$');
   }
 

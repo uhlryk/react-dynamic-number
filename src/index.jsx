@@ -65,7 +65,7 @@ class DynamicNumberComponent extends React.PureComponent {
         modelValue: '',
         viewValue: ''
       });
-    } else if(nextProps.value !== undefined){
+    } else if(nextProps.value !== this.props.value){
       this.calculator.calculate(this.calculator.calculateViewFromModel(nextProps.value), nextProps.value, "0");
 
       this.setState({
