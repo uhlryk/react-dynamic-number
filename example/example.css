@@ -1,0 +1,12 @@
+html {
+  font-size: 14px;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.col-form-label {
+  padding-bottom: 0;
+  font-weight: bolder;
+}

@@ -78,7 +78,7 @@ class DynamicNumber {
     return this._createViewValueFromModel(modelValue);
   }
 
-  calculate(rawViewValue = 0, oldModelValue = 0, oldViewValue = '0', cursorPosition = null) {
+  calculate(rawViewValue = 0, oldModelValue = 0, oldViewValue = '0', cursorPosition = null, oldCursorPosition = null) {
     this._rawViewValue = rawViewValue;
     this._oldModelValue = oldModelValue;
     this._oldViewValue = oldViewValue;
@@ -92,30 +92,33 @@ class DynamicNumber {
     if(value === '' && String(this._rawViewValue).charAt(0)=== '0'){
       this._newModelValue = 0;
       this._newViewValue = '0';
-      return;
+      return true;
     }
     if(value === undefined || value === ''){
       this._newModelValue = 0;
       this._newViewValue = '';
-      return;
+      return true;
     }
     if(value === '-'){
       this._newModelValue = 0;
       this._newViewValue = '-';
-      return;
+      return true;
     }
     //test fails, therefore we use old values
-    if(this._regexp.test(value) === false){
+    if(this._regexp.test(value) === false) {
       this._newModelValue = this._oldModelValue;
       this._newViewValue = this._oldViewValue;
-      return;
+      if (oldCursorPosition !== undefined && oldCursorPosition !== null) {
+        this._cursor = oldCursorPosition;
+      }
+      return false;
     }
      // view value success 'correct view format' test
     else {
       this._newModelValue = this._createModelValueFromView(value);
       this._newViewValue = this._createViewValueFromView(value);
       this._cursor = this._calculateNewCursorPosition();
-      return;
+      return true;
     }
   }
 
@@ -130,6 +133,7 @@ class DynamicNumber {
   get cursorPosition() {
     return this._cursor;
   }
+
   /**
    * private function which calculate thousand separator.
   */
@@ -188,6 +192,7 @@ class DynamicNumber {
     if(this._fraction === 0) {
       fractRegex = '';
     }
+
     return new RegExp('^'+negativeRegex+intRegex+fractRegex+'?$');
   }
 

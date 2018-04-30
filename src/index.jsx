@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import DynamicNumber from './dynamicNumber';
 
-class DynamicNumberComponent extends React.Component {
+class DynamicNumberComponent extends React.PureComponent {
 
   static propTypes = {
     value: PropTypes.oneOfType([
@@ -26,7 +26,11 @@ class DynamicNumberComponent extends React.Component {
       if(props[propName] !== undefined && props[propName] !== true && props[propName] !== false && props[propName] !== ' ') {
         return new Error('thousand have to be bool value or space character');
       }
-    }
+    },
+    placeholder: PropTypes.string,
+    // Pass this callback in props if you wish to konow when an illegal character is inputed.
+    // For instance, you may want to higlight input's background.
+    onBadInput: PropTypes.func,
   }
 
   constructor(props) {
@@ -47,12 +51,9 @@ class DynamicNumberComponent extends React.Component {
       modelValue: this.calculator.modelValue,
       viewValue: this.calculator.viewValue
     };
-
-    this.onChange= this.onChange.bind(this);
-    this.focus= this.focus.bind(this);
   }
 
-  focus() {
+  focus = () => {
     if (this.input && this.input.focus) {
       this.input.focus();
     }
@@ -64,7 +65,7 @@ class DynamicNumberComponent extends React.Component {
         modelValue: '',
         viewValue: ''
       });
-    } else if(nextProps.value !== undefined){
+    } else if(nextProps.value !== this.props.value){
       this.calculator.calculate(this.calculator.calculateViewFromModel(nextProps.value), nextProps.value, "0");
 
       this.setState({
@@ -76,27 +77,41 @@ class DynamicNumberComponent extends React.Component {
 
   // from http://stackoverflow.com/a/2897229/4138339
   getCaretPosition (oField) {
-    var iCaretPos = 0;
+    let iCaretPos = 0;
     if (document.selection) {
       oField.focus ();
-      var oSel = document.selection.createRange ();
+      const oSel = document.selection.createRange ();
       oSel.moveStart ('character', -oField.value.length);
       iCaretPos = oSel.text.length;
     }
-    else if (oField.selectionStart || Number(oField.selectionStart) === 0)
+    else if (oField.selectionStart || Number(oField.selectionStart) === 0) {
       iCaretPos = oField.selectionDirection === 'backward' ? oField.selectionStart : oField.selectionEnd;
+    }
     return (iCaretPos);
   }
 
-  onChange(evt) {
-    var target = evt.target;
-    this.dynamicNumber.calculate(evt.target.value, this.state.modelValue, this.state.viewValue, this.getCaretPosition(target));
+  fireBadInput () {
+    const {onBadInput} = this.props;
+    if (typeof onBadInput === 'function') {
+      onBadInput();
+    }
+  }
 
-    var modelValue = this.dynamicNumber.modelValue;
-    var viewValue = this.dynamicNumber.viewValue;
+  onChange = evt => {
+    const {target} = evt;
+    const {onChange} = this.props;
+    const {dynamicNumber} = this;
 
-    if(this.props.onChange) {
-      this.props.onChange(evt, modelValue, viewValue);
+    const isValid = dynamicNumber.calculate(evt.target.value, this.state.modelValue, this.state.viewValue, this.getCaretPosition(target), this._prevCursorPosition);
+    if (!isValid) {
+      this.fireBadInput();
+    }
+
+    const modelValue = dynamicNumber.modelValue;
+    const viewValue = dynamicNumber.viewValue;
+
+    if(typeof onChange === 'function') {
+      onChange(evt, modelValue, viewValue);
     }
 
     this.setState({
@@ -105,22 +120,27 @@ class DynamicNumberComponent extends React.Component {
     }, () => {
       //after value change we set cursor position
       if(target.selectionStart !== undefined && target.selectionStart !== null) {
-        target.selectionStart = target.selectionEnd = this.dynamicNumber.cursorPosition;
+        target.selectionStart = target.selectionEnd = dynamicNumber.cursorPosition;
       }
     });
   }
 
+  onKeyDown = evt => {
+    this._prevCursorPosition = this.getCaretPosition(evt.target)
+  }
+
   render() {
-    var { separator, integer, fraction, positive, negative, thousand, ...other } = this.props;
+    const { separator, integer, fraction, positive, negative, thousand, onBadInput, ...other } = this.props;
     return <input type="text"
                   ref={(input) => { this.input = input; }}
                   placeholder={this.props.placeholder}
                   className={this.props.className}
                   {...other}
                   value={this.state.viewValue}
-                  onChange={this.onChange} />
+                  onChange={this.onChange}
+                  onKeyDown={this.onKeyDown}
+           />
   }
 }
 
 export default DynamicNumberComponent;
-
