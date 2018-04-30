@@ -89,7 +89,7 @@ It needs react to work correctly. It is compiled without react at its source.
  * required: false
  * default: 0
  
-Init value of input. If init value is '' then input is empty.
+Initial value of the input. If initial value is '', then input is empty.
 
 **When you set this prop, then component became a [Controlled Component](https://facebook.github.io/react/docs/forms.html#controlled-components)**
 
@@ -102,7 +102,7 @@ Init value of input. If init value is '' then input is empty.
   * '.' - dot is decimal separator
   * ',' - comma is decimal separator
   
-Define number decimal separator
+Defines number decimal separator
 
 ### integer
   
@@ -110,7 +110,7 @@ Define number decimal separator
  * required: false
  * default: 10
  
-Set maximum numbers of digits integer part (digits before decimal separator)
+Sets maximum number of digits in integer part (digits before decimal separator)
  
 ### fraction
   
@@ -118,7 +118,7 @@ Set maximum numbers of digits integer part (digits before decimal separator)
  * required: false
  * default: 10
  
-Set maximum numbers of digits fraction part (digits after decimal separator)
+Sets maximum number of digits in fraction part (digits after the decimal separator)
  
 ### positive
   
@@ -129,7 +129,7 @@ Set maximum numbers of digits fraction part (digits after decimal separator)
   * true - number can be positive
   * false - number may not be positive
   
-Define if number may be positive
+Defines whether the number may be positive
 
 ### negative
   
@@ -140,7 +140,7 @@ Define if number may be positive
   * true - number can be negative
   * false - number may not be negative
   
-Define if number may be negative
+Defines whether the number may be negative
 
 ### thousand
 
@@ -154,7 +154,7 @@ Define if number may be negative
    * If decimal separator is dot then thousand separator is comma.
    * If decimal separator is comma then thousand separator is dot.
   
-Define number decimal separator
+Defines number decimal separator
 
 ### placeholder
 
@@ -162,7 +162,7 @@ Define number decimal separator
  * required: false
  * default: none
  
-Allow to set placeholder to empty input
+Allows to set a placeholder shown in a empty input
  
 ### onChange
   
@@ -173,7 +173,16 @@ Allow to set placeholder to empty input
   * modelValue - correct javascript number
   * viewValue - string value visible in input
   
-Define callback which will be trigger on any number change
+Defines a callback which will be triggered on any number change
+
+### onBadInput
+
+ * type: Function (callback)
+ * required: false
+  
+Defines a callback which will be called on entering an invalid character
+
+****
 
 ## FAQ
 
